@@ -95,6 +95,14 @@ cfg_if! {
         pub use crate::hermit::*;
 
         prelude!();
+    } else if #[cfg(target_os = "riscovite")] {
+        mod primitives;
+        pub use primitives::*;
+
+        mod riscovite;
+        pub use riscovite::*;
+
+        prelude!();
     } else if #[cfg(target_os = "teeos")] {
         mod primitives;
         pub use primitives::*;
